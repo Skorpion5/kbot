@@ -1,6 +1,7 @@
 /*
 Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 */
+
 package cmd
 
 import (
@@ -8,8 +9,6 @@ import (
 
 	"github.com/spf13/cobra"
 )
-
-var appVersion = "Version"
 
 // versionCmd represents the version command
 var versionCmd = &cobra.Command{
@@ -22,7 +21,7 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(appVersion)
+		fmt.Println("version called")
 	},
 }
 
@@ -30,6 +29,11 @@ func init() {
 	rootCmd.AddCommand(versionCmd)
 
 	// Here you will define your flags and configuration settings.
+	var appVersion = "Version"
+
+	versionCmd.Run = func(cmd *cobra.Command, args []string) {
+		fmt.Println(appVersion)
+	}
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
